@@ -1,9 +1,18 @@
 plugins {
     id 'java'
+    id 'maven-publish'
 }
 
 group 'ai.deem'
 version '0.1'
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+        }
+    }
+}
 
 repositories {
     mavenCentral()
@@ -12,8 +21,8 @@ repositories {
 sourceCompatibility = 1.8
 
 dependencies {
-    implementation('junit:junit:4.13')
-    implementation('com.fasterxml.jackson.core:jackson-core:2.9.6')
-    implementation('com.fasterxml.jackson.core:jackson-annotations:2.9.6')
-    implementation('com.fasterxml.jackson.core:jackson-databind:2.9.6')
+    implementation("junit:junit:$version_junit")
+    implementation("com.fasterxml.jackson.core:jackson-core:$version_jackson")
+    implementation("com.fasterxml.jackson.core:jackson-annotations:$version_jackson")
+    implementation("com.fasterxml.jackson.core:jackson-databind:$version_jackson")
 }
